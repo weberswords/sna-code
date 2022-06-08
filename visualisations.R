@@ -44,7 +44,7 @@ create_graph_layout <- function() {
 }
 
 centrality_nodes <- function(mode) {
-    # mode can equal "in" or "total"
+    # mode can equal "in" or "total" or "out"
     table_graph = create_table_graph(edge_graph)
 
     table_graph %>%
