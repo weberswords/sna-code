@@ -27,6 +27,7 @@ create_line_circle <- function(data) {
 
 create_node_lines <- function(data) {
     edge_graph = create_edge_graph(data)
+    print("Creating node lines...")
     edge_graph %>% ggraph(layout = "kk") + geom_edge_link() + geom_node_point()
 }
 
