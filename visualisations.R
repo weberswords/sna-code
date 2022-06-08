@@ -43,12 +43,13 @@ create_graph_layout <- function() {
     return(layout)
 }
 
-centrality_nodes <- function() {
+centrality_nodes <- function(mode) {
+    # mode can equal "in" or "total"
     table_graph = create_table_graph(edge_graph)
 
     table_graph %>%
     activate(nodes) %>%
-    mutate(deg = centrality_degree(mode = "total")) %>% arrange(desc(deg)) -> table_graph
+    mutate(deg = centrality_degree(mode = mode)) %>% arrange(desc(deg)) -> table_graph
     table_graph %>%
     ggraph(layout="kk") + geom_edge_link() + geom_node_point(aes(size = deg )) + theme(legend.position="bottom")
 }
